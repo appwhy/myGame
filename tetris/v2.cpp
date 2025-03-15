@@ -97,6 +97,7 @@ void draw_board() {
                 printf("  ");
         }
     }
+    fflush(stdout);
     Goto(tmp_Y, tmp_X);
 }
 
