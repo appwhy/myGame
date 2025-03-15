@@ -1,3 +1,10 @@
+/*
+    参考: https://github.com/taylorconor/tinytetris.git
+    改动:
+        可读性更强
+        添加了下一个方块的显示
+        添加了游戏界面的相对(0,0)的偏移
+*/
 #include <ctime>
 #include <curses.h>
 #include <unistd.h>
