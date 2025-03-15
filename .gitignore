@@ -1,4 +1,4 @@
-exe-tetris
+exe-*
 .vscode/
 tmp*
 a.out

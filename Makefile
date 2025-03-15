@@ -6,6 +6,9 @@ t1:
 t2:
 	gcc -o exe-tetris tetris/v2.cpp
 
+s1:
+	gcc -o exe-snake lib/utils.cpp snake/v1.cpp
+
 clean:
-	rm exe-tetris
+	rm exe-*
 
