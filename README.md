@@ -12,11 +12,14 @@
 <!-- /vscode-markdown-toc -->
 
 # myGame
-一些小游戏的实现
+一些小游戏的C++实现（核心还是C，只用结构体和结构化编程）
+
+以下游戏均在linux环境下运行， 不支持windows（你可以在windows上安装wsl）
+
+代码组织: 游戏代码本身（v1.cpp或v2.cpp）加上`lib/utils.cpp`才是完整的代码
+
 
 ##  1. <a name='Tetris'></a>俄罗斯方块(Tetris)
-v1和v2均是在linux环境下运行， 不支持windows（你可以在windows上安装wsl）
-
 
 ###  1.1. <a name='v1'></a>v1版本
 来源: 在 https://github.com/taylorconor/tinytetris.git 基础上修改得来
