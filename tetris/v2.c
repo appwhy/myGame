@@ -188,13 +188,13 @@ void runloop() {
         usleep(speed);
         draw_board();
         c = getch();
-        if ((c == 'a' || c == 'D') && x > 0 && !check_hit(x - 1, y, rotate)) {  // 左移
+        if ((c == 'a' || c == 'D' || c == 'K') && x > 0 && !check_hit(x - 1, y, rotate)) {  // 左移
             x--;
         }
-        if ((c == 'd' || c == 'C') && x + BlockW(piece_type, rotate) < Width-1 && !check_hit(x + 1, y, rotate)) {
+        if ((c == 'd' || c == 'C' || c == 'M') && x + BlockW(piece_type, rotate) < Width-1 && !check_hit(x + 1, y, rotate)) {
             x++;
         }
-        if ((c == 's' || c == 'B') && !check_hit(x, y + 1, rotate)) {  // 下移
+        if ((c == 's' || c == 'B' || c == 'P') && !check_hit(x, y + 1, rotate)) {  // 下移
             y++;
             tick = 30; // 加快循环
         }
@@ -204,7 +204,7 @@ void runloop() {
                 update_piece();
             }
         }
-        if (c == 'w' || c == 'A') {  // A == 上键
+        if (c == 'w' || c == 'A' || c == 'H') {  // A == 上键
             ++rotate; rotate %= 4;
             while (x + BlockW(piece_type, rotate) >= Width) {
                 x--;

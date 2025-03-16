@@ -204,18 +204,22 @@ void run_loop(){
             case 'w':
             case 'A':
             case 'k':
+            case 'H':
                 dir = UP; break;
             case 's':
             case 'B':
             case 'j':
+            case 'P':
                 dir = DOWN; break;
             case 'a':
             case 'D':
             case 'h':
+            case 'K':
                 dir = LEFT; break;
             case 'd':
             case 'C':
             case 'l':
+            case 'M':
                 dir = RIGHT; break;
             case 'q':
                 return;

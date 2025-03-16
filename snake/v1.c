@@ -245,18 +245,22 @@ void run_loop(){
             case 'w':
             case 'k':
             case 'A':
+            case 'H':
                 dir = UP; break;
             case 's':
             case 'j':
             case 'B':
+            case 'P':
                 dir = DOWN; break;
             case 'a':
             case 'h':
             case 'D':
+            case 'K':
                 dir = LEFT; break;
             case 'd':
             case 'l':
             case 'C':
+            case 'M':
                 dir = RIGHT; break;
             case 'q': return;
             case ' ': while(getch() != ' ') usleep(100000);
