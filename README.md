@@ -16,8 +16,9 @@
 
 以下游戏均在linux环境下运行， 不支持windows（你可以在windows上安装wsl）。
 
-实现了在windows上运行(使用dev C++)，但存在以下问题：
-1. 部分字符乱码
+实现了在windows上运行(使用`DEV-C++`)，但存在以下问题：
+1. 不支持ncurses，即tetris.v1不能在windows上编译成功
+1. 部分字符（unicode特殊字符）乱码
 1. 方向键用不了，只能使用`asdw`、`hjkl`进行上下左右移动
 
 代码组织: 游戏代码本身（v1.cpp或v2.cpp）加上`lib/utils.cpp`才是完整的代码。

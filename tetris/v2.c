@@ -9,7 +9,6 @@
 #include <signal.h>   // signal, SIGINT
 #include <stdint.h>	  // uint8_t
 #include <stdio.h>	  // printf
-#include <termios.h>  // struct termios, tcgetattr, tcsetattr
 #include <stdarg.h>   // va_list, va_start, va_end
 #include <unistd.h>   // usleep
 #include "../lib/utils.h"
