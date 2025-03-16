@@ -1,11 +1,24 @@
+<!-- vscode-markdown-toc -->
+* 1. [俄罗斯方块(Tetris)](#Tetris)
+	* 1.1. [v1版本](#v1)
+	* 1.2. [v2版本](#v2)
+* 2. [2048](#)
+* 3. [贪吃蛇(Snake)](#Snake)
+
+<!-- vscode-markdown-toc-config
+	numbering=true
+	autoSave=true
+	/vscode-markdown-toc-config -->
+<!-- /vscode-markdown-toc -->
+
 # myGame
 一些小游戏的实现
 
-## 俄罗斯方块(Tetris)
+##  1. <a name='Tetris'></a>俄罗斯方块(Tetris)
 v1和v2均是在linux环境下运行， 不支持windows（你可以在windows上安装wsl）
 
 
-### v1版本
+###  1.1. <a name='v1'></a>v1版本
 来源: 在 https://github.com/taylorconor/tinytetris.git 基础上修改得来
 
 改进:
@@ -23,7 +36,7 @@ v1和v2均是在linux环境下运行， 不支持windows（你可以在windows�
 ![v1 版本 gif](img/tetris-v1.gif)
 
 
-### v2版本
+###  1.2. <a name='v2'></a>v2版本
 来源: 在v1的基础上修改得来
 
 改进:
@@ -42,7 +55,7 @@ v1和v2均是在linux环境下运行， 不支持windows（你可以在windows�
 ![v2 版本 gif](img/tetris-v2.gif)
 
 
-## 2048
+##  2. <a name=''></a>2048
 
 参考: https://github.com/mevdschee/2048.c.git  在此基础上，简化了代码(合并或删除了一些函数)
 
@@ -54,7 +67,7 @@ v1和v2均是在linux环境下运行， 不支持windows（你可以在windows�
 
 ![v1 版本 2048](img/2048-v1.gif)
 
-## 贪吃蛇(Snake)
+##  3. <a name='Snake'></a>贪吃蛇(Snake)
 
 操作:
 * 使用方向键、`asdw`、`hjkl`进行上下左右移动
