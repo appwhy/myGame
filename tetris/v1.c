@@ -5,7 +5,7 @@
         添加了下一个方块的显示
         添加了游戏界面的相对(0,0)的偏移
 */
-#include <ctime>
+#include <time.h>
 #include <curses.h>
 #include <unistd.h>
 #include <stdlib.h>
@@ -227,7 +227,7 @@ void runloop() {
             new_piece();
         }
         if (c == 'w' || c == 'A') {  // A == 上键
-            ++rotate %= 4;
+            ++rotate; rotate %= 4;
             while (x + BlockW(piece_type, rotate) >= Width) {
                 x--;
             }

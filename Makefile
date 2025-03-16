@@ -1,7 +1,7 @@
 # default: build
 
 t1:
-	gcc -o exe-tetris tetris/v1.cpp -lncurses
+	gcc -o exe-tetris tetris/v1.c -lncurses
 
 t2:
 	gcc -o exe-tetris lib/utils.c tetris/v2.c
