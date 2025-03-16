@@ -3,35 +3,11 @@
 #include <sys/time.h>
 #include <stdbool.h>
 
-int getch_with_timeout(unsigned int timeout_ms) {
-    struct timeval timeout;
-    fd_set fds;
-    int ret;
-    char c;
 
-    FD_ZERO(&fds);
-    FD_SET(STDIN_FILENO, &fds);
-
-    timeout.tv_sec = timeout_ms / 1000;   // 秒部分
-    timeout.tv_usec = (timeout_ms % 1000) * 1000;  // 毫秒转换为微秒
-
-    ret = select(STDIN_FILENO + 1, &fds, NULL, NULL, &timeout);
-
-    if (ret > 0) {
-        if (read(STDIN_FILENO, &c, 1) > 0) {
-            return (unsigned char)c;  // 返回读取的字符
-        }
-    }
-    return -1; // 超时或错误
-}
-
-
-int getch(){
-    return getch_with_timeout(0);
-}
 
 #ifdef _WIN32  // Windows 版本
 #include <windows.h>
+#include <conio.h>    // 用于 kbhit()
 
 #ifndef ENABLE_VIRTUAL_TERMINAL_PROCESSING
 #define ENABLE_VIRTUAL_TERMINAL_PROCESSING 0x0004
@@ -70,6 +46,13 @@ void setBufferedInput(bool enable) {
     }
 }
 
+int getch(){
+	if(kbhit()){
+		return _getch();
+	}
+	return -1;
+}
+
 #else  // Linux / macOS 版本
 #include <termios.h>  // struct termios, tcgetattr, tcsetattr
 
@@ -101,4 +84,31 @@ void setBufferedInput(bool enable)
 		enabled = false;
 	}
 }
+
+int getch_with_timeout(unsigned int timeout_ms) {
+    struct timeval timeout;
+    fd_set fds;
+    int ret;
+    char c;
+
+    FD_ZERO(&fds);
+    FD_SET(STDIN_FILENO, &fds);
+
+    timeout.tv_sec = timeout_ms / 1000;   // 秒部分
+    timeout.tv_usec = (timeout_ms % 1000) * 1000;  // 毫秒转换为微秒
+
+    ret = select(STDIN_FILENO + 1, &fds, NULL, NULL, &timeout);
+
+    if (ret > 0) {
+        if (read(STDIN_FILENO, &c, 1) > 0) {
+            return (unsigned char)c;  // 返回读取的字符
+        }
+    }
+    return -1; // 超时或错误
+}
+
+int getch(){
+    return getch_with_timeout(0);
+}
+
 #endif
