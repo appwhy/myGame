@@ -29,9 +29,10 @@ void setBufferedInput(bool enable) {
     static bool enabled = true;
     static DWORD oldMode;
     HANDLE hStdin = GetStdHandle(STD_INPUT_HANDLE);
-	if (enable){  // 在windows下要手动启用ANSI转义序列, 为了兼容linux, 就在这里启用了
-		enableANSI();
-	}
+
+	// 在windows下要手动启用ANSI转义序列, 为了兼容linux, 就在这里启用了
+	enableANSI();
+
     if (enable && !enabled) {
         SetConsoleMode(hStdin, oldMode);  // 恢复原模式
         enabled = true;
