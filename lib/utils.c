@@ -1,5 +1,3 @@
-
-#include <termios.h>  // struct termios, tcgetattr, tcsetattr
 #include <stdlib.h>   // rand, srand, exit, FD_ZERO, FD_SET, select
 #include <unistd.h>   // STDIN_FILENO, read
 #include <sys/time.h>
@@ -32,6 +30,48 @@ int getch(){
     return getch_with_timeout(0);
 }
 
+#ifdef _WIN32  // Windows 版本
+#include <windows.h>
+
+#ifndef ENABLE_VIRTUAL_TERMINAL_PROCESSING
+#define ENABLE_VIRTUAL_TERMINAL_PROCESSING 0x0004
+#endif
+
+// Windows 终端（cmd.exe 和 PowerShell）默认不支持 ANSI 转义序列，
+// 但 Windows 10 及更新版本已经支持 ANSI 转义序列，需要 手动启用。
+void enableANSI() {
+    HANDLE hOut = GetStdHandle(STD_OUTPUT_HANDLE);
+    DWORD dwMode = 0;
+    if (hOut == INVALID_HANDLE_VALUE) return;
+    // 获取当前模式
+    if (!GetConsoleMode(hOut, &dwMode)) return;
+    // 启用 ANSI 处理（ENABLE_VIRTUAL_TERMINAL_PROCESSING）
+    SetConsoleMode(hOut, dwMode | ENABLE_VIRTUAL_TERMINAL_PROCESSING);
+}
+
+void setBufferedInput(bool enable) {
+    static bool enabled = true;
+    static DWORD oldMode;
+    HANDLE hStdin = GetStdHandle(STD_INPUT_HANDLE);
+	if (enable){  // 在windows下要手动启用ANSI转义序列, 为了兼容linux, 就在这里启用了
+		enableANSI();
+	}
+    if (enable && !enabled) {
+        SetConsoleMode(hStdin, oldMode);  // 恢复原模式
+        enabled = true;
+    }
+    else if (!enable && enabled) {
+        GetConsoleMode(hStdin, &oldMode);
+        DWORD newMode = oldMode;
+        newMode &= ~ENABLE_LINE_INPUT;  // 禁用行缓冲
+        newMode &= ~ENABLE_ECHO_INPUT;  // 禁用回显
+        SetConsoleMode(hStdin, newMode);
+        enabled = false;
+    }
+}
+
+#else  // Linux / macOS 版本
+#include <termios.h>  // struct termios, tcgetattr, tcsetattr
 
 // 禁用缓冲输入时，用户输入的每个字符都会立即传递给程序，而不需要按Enter(用于实时交互)
 void setBufferedInput(bool enable)
@@ -61,3 +101,4 @@ void setBufferedInput(bool enable)
 		enabled = false;
 	}
 }
+#endif
