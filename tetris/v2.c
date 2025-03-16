@@ -198,7 +198,7 @@ void runloop() {
             y++;
             tick = 30; // 加快循环
         }
-        if (c == '\n') {
+        if (c == '\n' || c == '\r') {
             while (!check_hit(x, y + 1, rotate)) {
                 y++;
                 update_piece();
