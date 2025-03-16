@@ -4,7 +4,7 @@ t1:
 	gcc -o exe-tetris tetris/v1.cpp -lncurses
 
 t2:
-	gcc -o exe-tetris lib/utils.cpp tetris/v2.cpp
+	gcc -o exe-tetris lib/utils.c tetris/v2.c
 
 s1:
 	gcc -o exe-snake lib/utils.cpp snake/v1.cpp

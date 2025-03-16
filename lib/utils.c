@@ -2,8 +2,10 @@
 #include <termios.h>  // struct termios, tcgetattr, tcsetattr
 #include <stdlib.h>   // rand, srand, exit, FD_ZERO, FD_SET, select
 #include <unistd.h>   // STDIN_FILENO, read
+#include <sys/time.h>
+#include <stdbool.h>
 
-int getch(unsigned int timeout_ms=0) {
+int getch_with_timeout(unsigned int timeout_ms) {
     struct timeval timeout;
     fd_set fds;
     int ret;
@@ -27,7 +29,7 @@ int getch(unsigned int timeout_ms=0) {
 
 
 int getch(){
-    return getch(0);
+    return getch_with_timeout(0);
 }
 
 

@@ -11,6 +11,7 @@
 #include <stdio.h>	  // printf
 #include <termios.h>  // struct termios, tcgetattr, tcsetattr
 #include <stdarg.h>   // va_list, va_start, va_end
+#include <unistd.h>   // usleep
 #include "../lib/utils.h"
 
 #define Width 10    // 游戏区域宽
@@ -205,7 +206,7 @@ void runloop() {
             }
         }
         if (c == 'w' || c == 'A') {  // A == 上键
-            ++rotate %= 4;
+            ++rotate; rotate %= 4;
             while (x + BlockW(piece_type, rotate) >= Width) {
                 x--;
             }
