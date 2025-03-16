@@ -62,10 +62,10 @@ void draw_board() {
     int i, j;
 
     Goto(Y, X);
-    PrintNCh("▄", 2*(Width+1));
+    PrintNCh(BORDER_UP, 2*(Width+1));
 
     for (i = 0; i < Height; i++) {
-        mvprintf(Y + 1 + i, X, "█");
+        mvprintf(Y + 1 + i, X, BORDER_LEFT);
 
         for (j = 0; j < Width; j++) {
             if (board[i][j]) {
@@ -74,11 +74,11 @@ void draw_board() {
                 PrintColor(fg, (i + j) % 2 ? 242 : 240, "  ");
             }
         }
-        printf("█");
+        printf(BORDER_RIGHT);
     }
 
     Goto(Y + Height + 1, X);
-    PrintNCh("▀", 2*(Width+1));
+    PrintNCh(BORDER_DOWN, 2*(Width+1));
 
     int tmp_Y = Y + Height + 2, tmp_X = X;
 

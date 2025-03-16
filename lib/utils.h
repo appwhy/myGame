@@ -8,9 +8,21 @@
 #ifdef _WIN32  // Windows 版本
 #include <conio.h>
 #define GETCHAR _getch
+
+#define BORDER_UP "x"
+#define BORDER_DOWN "x"
+#define BORDER_LEFT "x"
+#define BORDER_RIGHT "x"
+
 #else
 #include <stdio.h>
 #define GETCHAR getchar
+
+#define BORDER_UP "▄"
+#define BORDER_DOWN "▀"
+#define BORDER_LEFT "█"
+#define BORDER_RIGHT "█"
+
 #endif
 
 int getch();

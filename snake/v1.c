@@ -200,10 +200,10 @@ void draw_board(){
     Goto(Y, X);
     printf("Snake Game %*s score: %d", 2*board->width - 20, "", list_length(board->snake) - 2);
     Goto(++Y, X);
-    PrintNCh("▄", 2 * (board->width + 1) );
+    PrintNCh(BORDER_UP, 2 * (board->width + 1) );
     for(int i=0; i<board->height; i++) {
         Goto(++Y, X);
-        printf("█");
+        printf(BORDER_LEFT);
         for(int j=0; j<board->width; j++) {
             switch(board->matrix[i * board->width + j]) {
                 case NONE: printf("  "); break;
@@ -211,13 +211,13 @@ void draw_board(){
                     PrintColor(0, 12,"  ");
                     break;
                 case SNAKE_BODY: PrintColor(0, 208,"  "); break;
-                case FOOD: PrintColor(226, 0, "❤ "); break;
+                case FOOD: PrintColor(0, 226, "  "); break;
             }
         }
-        printf("█");
+        printf(BORDER_RIGHT);
     }
     Goto(++Y, X);
-    PrintNCh("▀", 2 * (board->width + 1));
+    PrintNCh(BORDER_DOWN, 2 * (board->width + 1));
     Goto(Y+1, X);
     fflush(stdout);
 }
