@@ -250,11 +250,11 @@ void signal_callback_handler(int signum)
 int main()
 {
     srand(time(NULL));
+    setBufferedInput(false);
 
     printf("\033[?25l\033[2J");  // make cursor invisible, erase entire screen
 	signal(SIGINT, signal_callback_handler);
 
-    setBufferedInput(false);
     init_board();
     draw_board();
     run_loop();

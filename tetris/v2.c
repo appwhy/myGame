@@ -238,12 +238,12 @@ void signal_callback_handler(int signum)
 
 int main() {
     srand(time(0));
-    new_piece();
+    setBufferedInput(false);
 
 	printf("\033[?25l\033[2J");  // make cursor invisible, erase entire screen
 	signal(SIGINT, signal_callback_handler);
 
-    setBufferedInput(false);
+    new_piece();
     draw_board();
     runloop();
 
