@@ -127,6 +127,7 @@ void init_board(uint8_t width, uint8_t height) {
     board->dir = RIGHT;
     board->snake = create_point(2, height/2);
     board->snake->next = create_point(1, height/2);
+    board->	foods = NULL;
 
     int cnt = 0;
     for(int i=0; i<FoodCnt; i++) {
@@ -207,8 +208,7 @@ void draw_board(){
             switch(board->matrix[i * board->width + j]) {
                 case NONE: printf("  "); break;
                 case SNAKE_HEAD:
-                    // PrintColor(0, 12,"  ");
-                    printf("██");
+                    PrintColor(0, 12,"  ");
                     break;
                 case SNAKE_BODY: PrintColor(0, 208,"  "); break;
                 case FOOD: PrintColor(226, 0, "❤ "); break;
@@ -259,7 +259,7 @@ void run_loop(){
             case 'C':
                 dir = RIGHT; break;
             case 'q': return;
-            case ' ': while(getch(100000) != ' ');
+            case ' ': while(getch() != ' ') usleep(100000);
         }
         if(dir == board->dir)
             tick = 30;
