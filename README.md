@@ -24,6 +24,8 @@
 ###  1.1. <a name='v1'></a>v1版本
 来源: 在 https://github.com/taylorconor/tinytetris.git 基础上修改得来
 
+注意: 编译代码之前，需要确保你的linux上有`ncurses`的相关头文件。没有的话，需要安装，我在Ubuntu时安装的命令是`sudo apt install libncurses-dev`。
+
 改进:
 * 可读性更强, 修改了一些变量名和变量值
 * 添加了下一个方块的显示
