@@ -12,11 +12,11 @@
 <!-- /vscode-markdown-toc -->
 
 # myGame
-一些小游戏的C++实现（核心还是C，只用结构体和结构化编程）
+一些小游戏的C++实现（核心还是C，只用结构体和结构化编程）。
 
-以下游戏均在linux环境下运行， 不支持windows（你可以在windows上安装wsl）
+以下游戏均在linux环境下运行， 不支持windows（你可以在windows上安装wsl）。
 
-代码组织: 游戏代码本身（v1.cpp或v2.cpp）加上`lib/utils.cpp`才是完整的代码
+代码组织: 游戏代码本身（v1.cpp或v2.cpp）加上`lib/utils.cpp`才是完整的代码。
 
 
 ##  1. <a name='Tetris'></a>俄罗斯方块(Tetris)
@@ -71,6 +71,8 @@
 ![v1 版本 2048](img/2048-v1.gif)
 
 ##  3. <a name='Snake'></a>贪吃蛇(Snake)
+
+参考: https://github.com/jvns/snake.git ，删除了ncurses.h, 使用ANSI转义序列代替。
 
 操作:
 * 使用方向键、`asdw`、`hjkl`进行上下左右移动
