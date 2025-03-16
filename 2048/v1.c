@@ -199,7 +199,7 @@ void run_loop(){
     char ch;
     while(true){
         dir = NODIR;
-        ch = getchar();
+        ch = GETCHAR();
         switch(ch){
             case 'w':
             case 'A':
