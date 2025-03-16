@@ -14,12 +14,13 @@
 # myGame
 一些小游戏的C语言实现。
 
-以下游戏均在linux环境下运行， 不支持windows（你可以在windows上安装wsl）。
+以下游戏均在linux环境下运行， 但也支持windows（我使用的DEV-C++）。为了兼容二者，在`lib/*`文件中使用宏进行了不同平台下的定义。
 
-实现了在windows上运行(使用`DEV-C++`)，但存在以下问题：
+但在windows下存在以下问题：
 1. 不支持ncurses，即tetris.v1不能在windows上编译成功
-1. 部分字符（unicode特殊字符）乱码
-1. Enter键用不了
+1. 部分字符（unicode特殊字符）可能乱码
+
+
 
 代码组织: 游戏代码本身（v1.cpp或v2.cpp）加上`lib/utils.cpp`才是完整的代码。
 

@@ -9,6 +9,7 @@
 #include <conio.h>
 #define GETCHAR _getch
 
+// 为了解决Windows下的乱码问题（？不支持Unicode）, 用字符代替
 #define BORDER_UP "x"
 #define BORDER_DOWN "x"
 #define BORDER_LEFT "x"
