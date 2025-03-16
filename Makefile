@@ -9,6 +9,9 @@ t2:
 s1:
 	gcc -o exe-snake lib/utils.cpp snake/v1.cpp
 
+21:
+	gcc -o exe-2048 lib/utils.cpp 2048/v1.cpp
+
 clean:
 	rm exe-*
 

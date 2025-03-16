@@ -44,9 +44,15 @@ v1和v2均是在linux环境下运行， 不支持windows（你可以在windows�
 
 ## 2048
 
-参考: https://github.com/mevdschee/2048.c.git
+参考: https://github.com/mevdschee/2048.c.git  在此基础上，简化了代码(合并或删除了一些函数)
 
+特性:
+* 新产生的数字只有2或4
+* 使用方向键、`asdw`、`hjkl`进行上下左右滑动
+* q或`Ctrl+C`退出
+* 新产生的数字会表示为`%d*`, 以示区别
 
+![v1 版本 2048](img/2048-v1.gif)
 
 ## 贪吃蛇(Snake)
 
