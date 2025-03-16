@@ -7,10 +7,10 @@ t2:
 	gcc -o exe-tetris lib/utils.c tetris/v2.c
 
 s1:
-	gcc -o exe-snake lib/utils.cpp snake/v1.cpp
+	gcc -o exe-snake lib/utils.c snake/v1.c
 
 21:
-	gcc -o exe-2048 lib/utils.cpp 2048/v1.cpp
+	gcc -o exe-2048 lib/utils.c 2048/v1.c
 
 clean:
 	rm exe-*

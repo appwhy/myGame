@@ -12,7 +12,7 @@
 <!-- /vscode-markdown-toc -->
 
 # myGame
-一些小游戏的C++实现（核心还是C，只用结构体和结构化编程）。
+一些小游戏的C语言实现。
 
 以下游戏均在linux环境下运行， 不支持windows（你可以在windows上安装wsl）。
 
