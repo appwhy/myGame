@@ -4,6 +4,7 @@
 	* 1.2. [v2版本](#v2)
 * 2. [2048](#)
 * 3. [贪吃蛇(Snake)](#Snake)
+* 4. [扫雷(MineSweeper)](#MineSweeper)
 
 <!-- vscode-markdown-toc-config
 	numbering=true
@@ -92,3 +93,14 @@ dev-c++编译运行代码：创建一个新的空项目，然后按照如下结�
 * 空格暂停
 
 ![v1 版本 Sname](img/snake-v1.gif)
+
+##  4. <a name='MineSweeper'></a>扫雷(MineSweeper)
+
+操作:
+* 使用方向键、`asdw`、`hjkl`进行上下左右移动。
+* q或`Ctrl+C`退出
+* 空格键或Enter键: 打开光标所在的格子。
+* m: mark，标记光标所在的格子，和扫雷的标记插旗子一样。再次按`m`取消标记。
+* b: bomb，主动引爆地雷，如果该格子不是地雷，游戏结束。
+
+![v1 版本 MineSweeper](minesweeper-v1.gif)

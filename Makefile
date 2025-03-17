@@ -12,6 +12,9 @@ s1:
 21:
 	gcc -o exe-2048 lib/utils.c 2048/v1.c
 
+m1:
+	gcc -o exe-mine lib/utils.c mineSweeper/v1.c
+
 clean:
 	rm exe-*
 
