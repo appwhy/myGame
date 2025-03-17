@@ -103,4 +103,4 @@ dev-c++编译运行代码：创建一个新的空项目，然后按照如下结�
 * m: mark，标记光标所在的格子，和扫雷的标记插旗子一样。再次按`m`取消标记。
 * b: bomb，主动引爆地雷，如果该格子不是地雷，游戏结束。
 
-![v1 版本 MineSweeper](minesweeper-v1.gif)
+![v1 版本 MineSweeper](img/minesweeper-v1.gif)
